@@ -10,8 +10,11 @@ pipeline {
         stage('build') {
             steps {
                 sh "java --version"
-                sh "mvn --version"
+                sh "git clone https://github.com/devopswithcloud/sample-maven.git"
+               dir ('sample-maven') {
+                  sh "mvn clean package"
+               }
+                
             }
         }
-    }
-}
+   
